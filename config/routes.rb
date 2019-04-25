@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get "all_exercises/shoulders"
       resources :users
       resources :exercise
-      resources :workout
+      resources :workouts
       resources :workout_exercises
     end
   end
