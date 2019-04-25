@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :exercise
       resources :workouts
       resources :workout_exercises
+      resources :imported_exercises
     end
   end
 end
