@@ -11,7 +11,8 @@ class Api::V1::AllExercisesController < ApplicationController
   end
 
   def find
-    @exercise = Exercise.all.find_by(imported_id: params[:imported_id]);
+    @exercise = Exercise.all.reverse.find{|exercise|  exercise.imported_id == params[:imported_id]}
+    byebug
     if @exercise
       render json: @exercise
     else
