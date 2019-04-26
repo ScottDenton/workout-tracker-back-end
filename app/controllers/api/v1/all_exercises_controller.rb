@@ -1,5 +1,5 @@
 class Api::V1::AllExercisesController < ApplicationController
-  
+
   def index
     url = "https://wger.de/api/v2/exercise/?language=2&status=2&limit=200"
     headers={
@@ -8,6 +8,15 @@ class Api::V1::AllExercisesController < ApplicationController
     response = HTTParty.get(url, headers: headers)
     @data= response.body
     render json: @data
+  end
+
+  def find
+    @exercise = Exercise.all.find_by(imported_id: params[:imported_id]);
+    if @exercise
+      render json: @exercise
+    else
+      render json: { errors: @exercise.errors.full_messages }
+    end
   end
 
   def abs

@@ -5,8 +5,8 @@ class CreateImportedExercises < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :description
       t.integer :category
-      t.text :muscles, array: true, default: []
-      t.text :equipment, array: true, default: []
+      t.integer :muscles, array: true, default: []
+      t.integer :equipment, array: true, default: []
     end
   end
 end

@@ -18,10 +18,6 @@ ActiveRecord::Schema.define(version: 2019_04_25_201457) do
   create_table "exercises", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
-    t.string "description"
-    t.integer "category"
-    t.text "muscles", default: [], array: true
-    t.text "equipment", default: [], array: true
     t.integer "imported_id"
     t.date "date"
     t.integer "weight"
@@ -37,8 +33,8 @@ ActiveRecord::Schema.define(version: 2019_04_25_201457) do
     t.string "name"
     t.string "description"
     t.integer "category"
-    t.text "muscles", default: [], array: true
-    t.text "equipment", default: [], array: true
+    t.integer "muscles", default: [], array: true
+    t.integer "equipment", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|

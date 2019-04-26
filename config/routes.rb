@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get "all_exercises/chest"
       get "all_exercises/legs"
       get "all_exercises/shoulders"
+      post "all_exercises/find"
       resources :users
       resources :exercise
       resources :workouts
