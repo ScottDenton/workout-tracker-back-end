@@ -8,6 +8,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    session[:user_id] = @user.id
     render json: @user
   end
 
@@ -23,7 +24,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:username, :password_digest, :date_of_birth, :height, :weight)
+    params.permit(:username, :password, :date_of_birth, :height, :weight)
   end
 
   def find_user

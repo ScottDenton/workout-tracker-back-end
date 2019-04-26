@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "all_exercises/index"
+      post "all_exercises/find"
+      
       get "all_exercises/abs"
       get "all_exercises/arms"
       get "all_exercises/back"
@@ -9,7 +11,11 @@ Rails.application.routes.draw do
       get "all_exercises/chest"
       get "all_exercises/legs"
       get "all_exercises/shoulders"
-      post "all_exercises/find"
+
+      get "sessions/new"
+      post "sessions/create"
+      get "sessions/destroy"
+
       resources :users
       resources :exercise
       resources :workouts
