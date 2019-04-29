@@ -19,6 +19,23 @@ class Api::V1::AllExercisesController < ApplicationController
     end
   end
 
+  def userWorkouts
+    @workouts = Workout.all.select{|workout| workout.user_id == params[:user_id]}
+    render json: @workouts
+  end
+
+  def userExercises
+    @exercises = Exercise.all.select{|exercise| exercise.user_id == params[:user_id]}
+    render json: @exercises
+  end
+
+  def exercisesByWorkout
+    @exercises = Workout.find(params[:id]).exercises
+
+    render json: @exercises
+
+  end
+
   def abs
     url = "https://wger.de/api/v2/exercise/?status=2&language=2&category=10"
     headers={
