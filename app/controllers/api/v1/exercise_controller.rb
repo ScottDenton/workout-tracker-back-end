@@ -21,7 +21,7 @@ class Api::V1::ExerciseController < ApplicationController
   private
 
   def exercise_params
-    params.permit(:user_id, :name, :description, :category, :muscles, :equipment, :imported_id, :date, :weight, :reps, :sets, :notes)
+    params.permit(:user_id, :name, :description, :category, :muscles, :equipment, :imported_exercise_id, :date, :weight, :reps, :sets, :notes)
   end
 
   def find_exercise
