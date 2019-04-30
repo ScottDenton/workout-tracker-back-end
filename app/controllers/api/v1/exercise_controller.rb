@@ -1,4 +1,6 @@
 class Api::V1::ExerciseController < ApplicationController
+  before_action :find_exercise, only: [:getDescription]
+
   def index
     @exercises = Exercise.all
     render json: @exercises
@@ -18,6 +20,14 @@ class Api::V1::ExerciseController < ApplicationController
     end
   end
 
+  def getDescription
+    @description = @exercise.imported_exercise.description
+    @desc = Loofah.fragment(@description).scrub!(:strip)
+    @safeDescription = {description: @desc.text}
+    
+    render json: @safeDescription
+  end
+
   private
 
   def exercise_params
@@ -25,7 +35,7 @@ class Api::V1::ExerciseController < ApplicationController
   end
 
   def find_exercise
-    @exercise = Workout.find(params[:id])
+    @exercise = Exercise.find(params[:id])
   end
 
 end

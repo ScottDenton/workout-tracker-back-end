@@ -31,10 +31,9 @@ class Api::V1::AllExercisesController < ApplicationController
 
   def exercisesByWorkout
     @exercises = Workout.find(params[:id]).exercises
-
     render json: @exercises
-
   end
+
 
   def abs
     url = "https://wger.de/api/v2/exercise/?status=2&language=2&category=10"

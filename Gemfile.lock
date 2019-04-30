@@ -154,6 +154,7 @@ DEPENDENCIES
   byebug
   httparty (~> 0.13.7)
   listen (>= 3.0.5, < 3.2)
+  loofah
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rack-cors

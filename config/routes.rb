@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       post "sessions/create"
       get "sessions/destroy"
 
+      post "exercise/getDescription"
+
       resources :users
       resources :exercise
       resources :workouts
