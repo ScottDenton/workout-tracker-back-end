@@ -1,5 +1,5 @@
 class Api::V1::ExerciseController < ApplicationController
-  before_action :find_exercise, only: [:getDescription]
+  before_action :find_exercise, only: [:getDescription, :getImageUrl]
 
   def index
     @exercises = Exercise.all
@@ -24,8 +24,19 @@ class Api::V1::ExerciseController < ApplicationController
     @description = @exercise.imported_exercise.description
     @desc = Loofah.fragment(@description).scrub!(:strip)
     @safeDescription = {description: @desc.text}
-    
+
     render json: @safeDescription
+  end
+
+  def getImageUrl
+    url = "https://wger.de/api/v2/exerciseimage/#{@exercise.imported_exercise_id}"
+    headers={
+      'Authorization': Rails.application.credentials.dig(:api_key)
+    }
+    response = HTTParty.get(url, headers: headers)
+    @data= response.body
+    render json: @data
+
   end
 
   private

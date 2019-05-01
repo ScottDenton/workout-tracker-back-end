@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get "sessions/destroy"
 
       post "exercise/getDescription"
+      post "exercise/getImageUrl"
 
       resources :users
       resources :exercise
