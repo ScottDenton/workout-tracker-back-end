@@ -8,8 +8,6 @@ class Api::V1::SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     # if user exists and password is correct
     if @user && @user.authenticate(params[:password])
-      # save the user id inside the browser- keeping user logged in whilst they navigate around places.
-      session[:user_id] = @user.id
       render json: @user
     else
       render json: {errors: @user.errors.full_messages}

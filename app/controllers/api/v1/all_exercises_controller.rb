@@ -25,7 +25,8 @@ class Api::V1::AllExercisesController < ApplicationController
   end
 
   def userExercises
-    @exercises = Exercise.all.select{|exercise| exercise.user_id == params[:user_id]}
+    @exercises = Exercise.all.select{|exercise| exercise.user_id == params[:user_id].to_i}
+    
     render json: @exercises
   end
 

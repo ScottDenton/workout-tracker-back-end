@@ -29,7 +29,7 @@ class Api::V1::ExerciseController < ApplicationController
   end
 
   def getImageUrl
-    url = "https://wger.de/api/v2/exerciseimage/#{@exercise.imported_exercise_id}"
+    url = "https://wger.de/api/v2/exerciseimage/#{@exercise.imported_exercise.imported_id}"
     headers={
       'Authorization': Rails.application.credentials.dig(:api_key)
     }

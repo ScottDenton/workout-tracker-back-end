@@ -1,5 +1,5 @@
 class Api::V1::WorkoutsController < ApplicationController
-  before_action :find_workout, only: [:show]
+  before_action :find_workout, only: [:show, :destroy]
   def index
     @workouts = Workout.all
     render json: @workouts
@@ -21,6 +21,10 @@ class Api::V1::WorkoutsController < ApplicationController
     else
       render json: { errors: @workout.errors.full_messages }, status: :unprocessible_entity
     end
+  end
+
+  def destroy
+    @workout.destroy
   end
 
   private
