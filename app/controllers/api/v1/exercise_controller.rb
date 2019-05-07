@@ -28,17 +28,6 @@ class Api::V1::ExerciseController < ApplicationController
     render json: @safeDescription
   end
 
-  def getImageUrl
-    url = "https://wger.de/api/v2/exerciseimage/#{@exercise.imported_exercise.imported_id}"
-    headers={
-      'Authorization': Rails.application.credentials.dig(:api_key)
-    }
-    response = HTTParty.get(url, headers: headers)
-    @data= response.body
-    render json: @data
-
-  end
-
   private
 
   def exercise_params

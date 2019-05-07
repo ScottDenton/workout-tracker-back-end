@@ -7,20 +7,11 @@ Rails.application.routes.draw do
       post "all_exercises/userExercises"
       post "all_exercises/exercisesByWorkout"
 
-      get "all_exercises/abs"
-      get "all_exercises/arms"
-      get "all_exercises/back"
-      get "all_exercises/calves"
-      get "all_exercises/chest"
-      get "all_exercises/legs"
-      get "all_exercises/shoulders"
-
       get "sessions/new"
       post "sessions/create"
       get "sessions/destroy"
 
       post "exercise/getDescription"
-      post "exercise/getImageUrl"
 
       resources :users
       resources :exercise
