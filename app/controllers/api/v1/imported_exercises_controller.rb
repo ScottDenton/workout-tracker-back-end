@@ -13,7 +13,7 @@ class Api::V1::ImportedExercisesController < ApplicationController
   private
 
   def imported_exercises_params
-    params.permit(:imported_id, :name, :description, :category, :muscles, :equipment)
+    params.permit(:imported_exercise_id, :name, :description, :category, :muscles, :equipment)
   end
 
 end

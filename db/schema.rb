@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_182639) do
   create_table "exercises", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
-    t.integer "imported_id"
+    t.integer "imported_exercise_id"
     t.date "date"
     t.integer "weight"
     t.integer "reps"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_182639) do
   end
 
   create_table "imported_exercises", force: :cascade do |t|
-    t.integer "imported_id"
+    t.integer "imported_exercise_id"
     t.string "name"
     t.string "description"
     t.integer "category"
