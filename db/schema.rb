@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_182639) do
   end
 
   create_table "imported_exercises", force: :cascade do |t|
-    t.integer "imported_exercise_id"
+    t.integer "imported_id"
     t.string "name"
     t.string "description"
     t.integer "category"
