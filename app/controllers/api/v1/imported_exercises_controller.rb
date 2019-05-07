@@ -6,7 +6,7 @@ class Api::V1::ImportedExercisesController < ApplicationController
   end
 
   def create
-    @imported_exercises = ImportedExercise.create(imported_exercise_id: params[:imported_exercise_id])
+    @imported_exercises = ImportedExercise.create(imported_exercises_params)
     render json: @imported_exercises
   end
 
