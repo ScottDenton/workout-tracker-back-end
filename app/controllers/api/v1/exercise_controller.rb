@@ -1,5 +1,5 @@
 class Api::V1::ExerciseController < ApplicationController
-  before_action :find_exercise, only: [:getDescription, :getImageUrl]
+  before_action :find_exercise, only: [:getDescription, :destroy]
 
   def index
     @exercises = Exercise.all
@@ -18,6 +18,10 @@ class Api::V1::ExerciseController < ApplicationController
     else
       render json: { errors: @exercise.errors.full_messages }, status: :unprocessible_entity
     end
+  end
+
+  def destroy
+    @exercise.destroy
   end
 
   def getDescription
