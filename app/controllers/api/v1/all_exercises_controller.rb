@@ -14,8 +14,8 @@ class Api::V1::AllExercisesController < ApplicationController
     @exercise = Exercise.all.reverse.find{|exercise|  exercise.imported_exercise_id == params[:imported_exercise_id]}
     if @exercise
       render json: @exercise
-    # else
-    #   render json: { errors: @exercise.errors.full_messages }
+    else
+      render json: { errors: @exercise.errors.full_messages }
     end
   end
 
