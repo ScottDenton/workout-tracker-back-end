@@ -15,7 +15,7 @@ class Api::V1::AllExercisesController < ApplicationController
     if @exercise
       render json: @exercise
     else
-      render json: { errors: @exercise.errors.full_messages }
+      render json: { status: 500, message: "That exercise has not been recorded before" }
     end
   end
 
